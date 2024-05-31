@@ -1,0 +1,30 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="3.0"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+    <persistence-unit name="persistenciaUWU" transaction-type="RESOURCE_LOCAL">
+        <description>Project for learning Hibernate</description>
+
+        <!-- Persistence provider implementation -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Exclude unlisted classes -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+        <!-- Database connection properties -->
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/esquema_estudiantes"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="ilovelasranas2"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
+
+<!--
+<property name="connection.url">jdbc:mysql://localhost:3306/esquema_estudiantes</property>
+<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+<property name="connection.username">root</property>
+<property name="connection.password">ilovelasranas2</property>
+-->

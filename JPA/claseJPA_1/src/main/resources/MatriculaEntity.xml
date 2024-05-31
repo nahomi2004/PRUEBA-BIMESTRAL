@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="org.example.entidadesPersistencia.MatriculaEntity">
+        <table name="matricula" schema="esquema_estudiantes" catalog=""/>
+        <attributes>
+            <id name="idMat">
+                <column name="idMat" precision="-1"/>
+            </id>
+            <basic name="carrera">
+                <column name="Carrera" nullable="false" length="45"/>
+            </basic>
+            <basic name="ciclo">
+                <column name="Ciclo" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="anio">
+                <column name="Anio" nullable="false" length="45"/>
+            </basic>
+            <basic name="estudianteIdEstudiante">
+                <column name="Estudiante_idEstudiante" precision="-1"/>
+            </basic>
+            <many-to-one name="estudianteByEstudianteIdEstudiante" optional="true"
+                         target-entity="org.example.entidadesPersistencia.EstudianteEntity">
+                <join-column name="Estudiante_idEstudiante" referenced-column-name="idEstudiante"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>
