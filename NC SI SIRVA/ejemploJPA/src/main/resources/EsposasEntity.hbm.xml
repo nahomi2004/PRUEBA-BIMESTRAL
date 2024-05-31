@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.persistencia.EsposasEntity" table="esposas" schema="clase1_semana2">
+        <id name="idEsp">
+            <column name="idEsp" sql-type="int"/>
+        </id>
+        <property name="cedula">
+            <column name="Cedula" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="nombres">
+            <column name="Nombres" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="apellidos">
+            <column name="Apellidos" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <set name="clientesByIdEsp" inverse="true">
+            <key>
+                <column name="esposas_idEsp"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.persistencia.ClientesEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

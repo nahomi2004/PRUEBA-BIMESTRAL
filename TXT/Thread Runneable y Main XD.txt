@@ -1,0 +1,43 @@
+esto lo hacemos en el terminal, utilizando el comando jshell
+
+public class HelloThread extends Thread {
+    @Override
+    public void run() {
+        String helloMess = String.format("Hola, soy %s", Thread.currentThread().getName());
+        System.out.println(helloMess);
+    }
+}
+
+public class HelloRunneable implements Runnable {
+    @Override
+    public void run() {
+        String threadName = Thread.currentThread().getName();
+        String helloMess = String.format("Hola, soy %s", threadName);
+        System.out.println(helloMess);
+    }
+}
+
+
+var t1 = new HelloThread();
+var t2 = new Thread(new HelloRunneable());
+Thread myThread = new Thread(new HelloRunneable(), "my-thread");
+Thread t3 = new Thread(() -> {
+	System.out.println(String.format("Hola, soy %s", Thread.currentThread().getName()));
+});
+
+
+
+
+
+
+public class Main2 {
+    public static void main(String[] args) {
+        var t1 = new HelloThread();
+        var t2 = new Thread(new HelloRunneable());
+        Thread myThread = new Thread(new HelloRunneable(), "my-thread");
+        Thread t3 = new Thread(() -> {
+            System.out.println(String.format("Hola, soy %s", Thread.currentThread().getName()));
+        });
+    }
+}
+
