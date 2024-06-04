@@ -39,6 +39,7 @@ public class Hilo implements Runnable {
         for (int i = 0; i < numeros.size(); i++) {
             if (esPrimo(numeros.get(i))) {
                 contNumPrimos++;
+                System.out.println("Este si es un primo. Contado por: " + Thread.currentThread().getName());
             }
         }
         
