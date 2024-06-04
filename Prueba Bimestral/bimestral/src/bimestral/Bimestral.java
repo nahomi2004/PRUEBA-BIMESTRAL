@@ -23,7 +23,7 @@ public class Bimestral {
         em.close();
         emf.close();
     }
-    
+    // medio punto este bimestre uwu
     public static void hacertodo(List<valores> numeros) {
         System.out.println(numeros.size());
         
@@ -38,10 +38,10 @@ public class Bimestral {
         // List<Integer> id = new ArrayList<>();
         
         for (valores valor : numeros) {
-            col1List.add(valor.getCol1());
-            col2List.add(valor.getCol2());
-            col3List.add(valor.getCol3());
-            col4List.add(valor.getCol4());
+            col1List.add(valor.getCol1()); // 0, 1, 2, 3, 4
+            col2List.add(valor.getCol2()); // 0, 1, 2, 3, 4
+            col3List.add(valor.getCol3()); // 0, 1, 2, 3, 4
+            col4List.add(valor.getCol4()); // 0, 1, 2, 3, 4
             // id.add(valor.getId()); // solo estaba probando si solo tomaba las col
         }
         
