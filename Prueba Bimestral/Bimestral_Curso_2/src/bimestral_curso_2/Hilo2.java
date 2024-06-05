@@ -19,9 +19,13 @@ public class Hilo2 extends Thread {
     private static EntityManager em;
     private static int contNumPrimos;
     private static Random r;
-    private ArrayList<valores2> valores;
+    private static int idHilo = 0;
+    private static ArrayList<valores2> valores;
     private int numRep;
     private CountDownLatch endController;
+
+    public Hilo2() {
+    }
     
     public Hilo2(int numRep, CountDownLatch endController) {
         emf = Persistence.createEntityManagerFactory("Bimestral_Curso_2_PU");
@@ -29,6 +33,7 @@ public class Hilo2 extends Thread {
         this.numRep = numRep;
         this.endController = endController;
         valores = new ArrayList<>();
+        idHilo++;
     }
     
     public int getContNumPrimos() {
@@ -49,6 +54,7 @@ public class Hilo2 extends Thread {
     
     @Override
     public void run() {
+        r = new Random();
         // 4 numeros 
         for (int i=0; i < numRep; i++) {
             int n1 = r.nextInt(20) + 1;
@@ -65,9 +71,18 @@ public class Hilo2 extends Thread {
                 }
             }
             
-            int nHilo = Integer.parseInt(getName().split(" ")[1]);
-            valores2 v2 = new valores2(nHilo, n1, n2, n3, n4);
-            valores.add(v2);
+            // String numThread = getName().substring(getName().lastIndexOf('-'+ 1));
+            
+            // int nHilo = Integer.parseInt(numThread);
+            
+            valores2 v2 = new valores2(idHilo, n1, n2, n3, n4);
+            // valores.add(v2);
+            
+            em.getTransaction().begin();
+            em.persist(v2);
+            em.getTransaction().commit();
+            
+            endController.countDown();
         }
     }
     
