@@ -22,3 +22,14 @@ sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu focal universe"
 sudo apt update
 
 instalan Apache NetBeans (Ubuntu Software)
+
+instalar JDK17
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install openjdk-17-jdk
+sudo apt install openjdk-17-jre
+
+verificar version
+
+java --version
