@@ -1,0 +1,22 @@
+*sudo snap install curl (instalar curl)
+*pwd (donde estoy ubicado en este momento)
+*ls (lo que tengo instalado -> azul, rojo -> archivos comprimidos)
+*ls -al (lista lo q tenemos pero ya con fecha. los permisos tambien estan ahi w de de write, r de read y asi uwu)
+*cd (para entrar a la carpeta x)
+*cd .. (regresar)
+*curl https://dlcdn.apache.org/zepellin/zepellin/0.11.1/zepellin-0.11.1-bin-all.tgz (descargar zepellin)
+*tar -xf zp.tgz (descomprimir el archivo de zepellin uwu)
+*curl https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz -o spark.tgz (instalar el spark)
+*curl -s "https://get.sdkman.io" | bash
+*sdk list java
+*curl -s "https://get.sdkman.io" | bash
+*sdk install 11.0.23.fx-zulu 
+*java version
+*sdk install scala 2.12.1
+*cd zeppelin-0.11.1-bin-all/bin
+*.zeppelin-daemon.sh start
+-----zeppelin
+1+1 (ejecutar)
+---regresar hasta el usuario
+
+

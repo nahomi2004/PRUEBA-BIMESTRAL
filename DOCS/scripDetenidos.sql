@@ -1,3 +1,5 @@
+USE proyecto_integrador;
+
 SELECT * FROM proyecto_integrador.detenidos_2016;
 
 SHOW VARIABLES LIKE 'secure_file_priv';
@@ -7,6 +9,9 @@ SELECT count(*) FROM proyecto_integrador.detenidos_2017;
 SELECT count(*) FROM proyecto_integrador.detenidos_2018;
 SELECT count(*) FROM proyecto_integrador.detenidos_2019;
 SELECT count(*) FROM proyecto_integrador.detenidos_2020;
+SELECT count(*) FROM proyecto_integrador.detenidos_2021;
+SELECT count(*) FROM proyecto_integrador.detenidos_2022;
+SELECT count(*) FROM proyecto_integrador.detenidos_2023;
 
 drop table proyecto_integrador.detenidos_2023;
 
@@ -114,7 +119,7 @@ CREATE TABLE detenidos_2022 (
 
 CREATE TABLE detenidos_2023 (
 	ID INT PRIMARY KEY,
-    codigo_iccs DECIMAL(10,2),
+	codigo_iccs FLOAT,
     tipo VARCHAR(50),
     estado_civil VARCHAR(50),
     estatus_migratorio VARCHAR(50),
@@ -125,10 +130,10 @@ CREATE TABLE detenidos_2023 (
     autoidentificacion_etnica VARCHAR(50),
     numero_detenciones INT,
     nivel_de_instruccion VARCHAR(50),
-    condicion VARCHAR(100),
-    movilizacion VARCHAR(100),
-    tipo_arma VARCHAR(100),
-    arma VARCHAR(100),
+    condicion VARCHAR(50),
+    movilizacion VARCHAR(50),
+    tipo_arma VARCHAR(50),
+    arma VARCHAR(50),
     fecha_detencion_aprehension DATE,
     hora_detencion_aprehension TIME,
     lugar VARCHAR(50),
@@ -148,9 +153,9 @@ CREATE TABLE detenidos_2023 (
     nombre_canton VARCHAR(50),
     nombre_parroquia VARCHAR(50),
     presunta_flagrancia VARCHAR(5),
-    presunta_infraccion VARCHAR(255),
-    presunta_subinfraccion VARCHAR(255),
-    presunta_modalidad VARCHAR(255)
+    presunta_infraccion VARCHAR(100),
+    presunta_subinfraccion VARCHAR(100),
+    presunta_modalidad VARCHAR(50)
 );
 
 
@@ -228,9 +233,10 @@ INTO TABLE detenidos_2023
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(ID, codigo_iccs, tipo, estado_civil, estatus_migratorio, edad, sexo, genero, nacionalidad, autoidentificacion_etnica, numero_detenciones, nivel_de_instruccion, condicion, movilizacion, tipo_arma, arma, @fecha_detencion_aprehension, hora_detencion_aprehension, lugar, tipo_lugar, codigo_distrito, codigo_circuito, codigo_subcircuito, nombre_zona, nombre_subzona, nombre_distrito, nombre_circuito, nombre_subcircuito, codigo_provincia, codigo_canton, codigo_parroquia, nombre_provincia, nombre_canton, nombre_parroquia, presunta_flagrancia, presunta_infraccion, presunta_subinfraccion, presunta_modalidad)
-SET fecha_detencion_aprehension = STR_TO_DATE(@fecha_detencion_aprehension, '%d-%m-%y');
+IGNORE 1 LINES
+(ID, codigo_iccs, tipo, estado_civil, estatus_migratorio, edad, sexo, genero, nacionalidad, autoidentificacion_etnica, numero_detenciones, nivel_de_instruccion, condicion, movilizacion, tipo_arma, arma, @fecha_detencion, @hora_detencion, lugar, tipo_lugar, codigo_distrito, codigo_circuito, codigo_subcircuito, nombre_zona, nombre_subzona, nombre_distrito, nombre_circuito, nombre_subcircuito, codigo_provincia, codigo_canton, codigo_parroquia, nombre_provincia, nombre_canton, nombre_parroquia, presunta_flagrancia, presunta_infraccion, presunta_subinfraccion, presunta_modalidad)
+SET fecha_detencion_aprehension = STR_TO_DATE(@fecha_detencion, '%d-%m-%y'),
+    hora_detencion_aprehension = STR_TO_DATE(@hora_detencion, '%H:%i');
 
 
 
