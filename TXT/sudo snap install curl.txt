@@ -21,3 +21,6 @@
 ---regresar hasta el usuario
 
 
+
+rm -rf ~/zeppelin-0.11.1-bin-all/conf
+
