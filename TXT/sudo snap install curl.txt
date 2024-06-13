@@ -14,7 +14,8 @@
 *java version
 *sdk install scala 2.12.1
 *cd zeppelin-0.11.1-bin-all/bin
-*.zeppelin-daemon.sh start
+*ls
+*./zeppelin-daemon.sh start
 -----zeppelin
 1+1 (ejecutar)
 ---regresar hasta el usuario
