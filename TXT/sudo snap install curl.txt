@@ -10,7 +10,7 @@
 *curl -s "https://get.sdkman.io" | bash
 *sdk list java
 *curl -s "https://get.sdkman.io" | bash
-*sdk install 11.0.23.fx-zulu 
+*sdk install java 11.0.23.fx-zulu 
 *java version
 *sdk install scala 2.12.1
 *cd zeppelin-0.11.1-bin-all/bin
@@ -19,4 +19,5 @@
 1+1 (ejecutar)
 ---regresar hasta el usuario
 
+wget https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
 
