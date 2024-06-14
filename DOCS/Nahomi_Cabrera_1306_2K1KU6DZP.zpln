@@ -1,0 +1,198 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "1+1\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-13T18:26:50-0500",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1717906557586_644806500",
+      "id": "paragraph_1717906557586_644806500",
+      "dateCreated": "2024-06-08T23:15:57-0500",
+      "dateStarted": "2024-06-13T18:26:50-0500",
+      "dateFinished": "2024-06-13T18:27:37-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:4913"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=0",
+              "$$hashKey": "object:5560"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id=1",
+              "$$hashKey": "object:5561"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718326056972_336916382",
+      "id": "paragraph_1718326056972_336916382",
+      "dateCreated": "2024-06-13T19:47:36-0500",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:5403",
+      "text": "val data = spark\n    .read\n    .option(\"inferSchema\", \"true\")\n    .option(\"header\", \"true\")\n    .option(\"delimiter\", \",\")\n    .csv(\"/home/nahomi/Descargas/owid-covid-data.csv\")",
+      "dateUpdated": "2024-06-13T19:51:23-0500",
+      "dateFinished": "2024-06-13T19:51:53-0500",
+      "dateStarted": "2024-06-13T19:51:23-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [iso_code: string, continent: string ... 65 more fields]\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%md \n\n> Instalar curl <\n\nsudo snap install curl\n\n\n> Instalar spark (2 comandos que pueden servir) <\n\ncurl https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz -o spark.tgz\nwget https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz\n\n\n> Instalar sdkman <\n\ncurl -s \"https://get.sdkman.io\" | bash\n\n\n> Instalar java <\n\nsdk list java\nsdk install java 11.0.23.fx-zulu\njava version --> Comprobar versión\n\n\n> Instalar Scala <\n\nsdk install scala 2.12.1\n\n\n> Instalar Zeppelin (2 comandos) <\n\nwget https://archive.apache.org/dist/zeppelin/zeppelin-0.11.1/zeppelin-0.11.1-bin-all.tgz\ncurl https://dlcdn.apache.org/zepellin/zepellin/0.11.1/zepellin-0.11.1-bin-all.tgz\n\n\n> Activar, detener y borrar configuraciones <\n\ncd zeppelin-0.11.1-bin-all/bin\nls\n./zeppelin-daemon.sh start\n./zeppelin-daemon.sh stop\n./zeppelin-daemon.sh restart\nrm -rf ~/zeppelin-0.11.1-bin-all/conf\n\n\n> Otros comandos importantes <\n\npwd (donde estoy ubicado en este momento)\nls (lo que tengo instalado -> azul, rojo -> archivos comprimidos)\nls -al (lista lo q tenemos pero ya con fecha. los permisos tambien estan ahi w de de write, r de read y asi uwu)\ncd (para entrar a la carpeta x --> cd spark + tab)\ncd .. (regresar)\n\n\n> (Errores de permiso) <\n\nsudo chmod +x /home/nahomi/.sdkman/bin/sdkman-init.sh\nsudo chown nahomi:nahomi //home/nahomi/.sdkman/bin/sdkman-init.sh\nsource /home/nahomi/.sdkman/bin/sdkman-init.sh\n\n\n> (Error por esos archivos con ._) <\n\nfind . -name '._*' -delete\n\n\nRepositorio para que se entiendan mejor los comandos\nhttps://github.com/nahomi2004/PRUEBA-BIMESTRAL/blob/main/TXT/PRACTICA%201603%20ZEPPELIN",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-13T19:59:55-0500",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718318591049_110854080",
+      "id": "paragraph_1718318591049_110854080",
+      "dateCreated": "2024-06-13T17:43:11-0500",
+      "status": "FINISHED",
+      "$$hashKey": "object:4914",
+      "dateFinished": "2024-06-13T19:59:55-0500",
+      "dateStarted": "2024-06-13T19:59:55-0500",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<blockquote>\n<p>Instalar curl &lt;</p>\n</blockquote>\n<p>sudo snap install curl</p>\n<blockquote>\n<p>Instalar spark (2 comandos que pueden servir) &lt;</p>\n</blockquote>\n<p>curl <a href=\"https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz\">https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz</a> -o spark.tgz<br />\nwget <a href=\"https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz\">https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz</a></p>\n<blockquote>\n<p>Instalar sdkman &lt;</p>\n</blockquote>\n<p>curl -s &ldquo;<a href=\"https://get.sdkman.io\">https://get.sdkman.io</a>&rdquo; | bash</p>\n<blockquote>\n<p>Instalar java &lt;</p>\n</blockquote>\n<p>sdk list java<br />\nsdk install java 11.0.23.fx-zulu<br />\njava version &ndash;&gt; Comprobar versión</p>\n<blockquote>\n<p>Instalar Scala &lt;</p>\n</blockquote>\n<p>sdk install scala 2.12.1</p>\n<blockquote>\n<p>Instalar Zeppelin (2 comandos) &lt;</p>\n</blockquote>\n<p>wget <a href=\"https://archive.apache.org/dist/zeppelin/zeppelin-0.11.1/zeppelin-0.11.1-bin-all.tgz\">https://archive.apache.org/dist/zeppelin/zeppelin-0.11.1/zeppelin-0.11.1-bin-all.tgz</a><br />\ncurl <a href=\"https://dlcdn.apache.org/zepellin/zepellin/0.11.1/zepellin-0.11.1-bin-all.tgz\">https://dlcdn.apache.org/zepellin/zepellin/0.11.1/zepellin-0.11.1-bin-all.tgz</a></p>\n<blockquote>\n<p>Activar, detener y borrar configuraciones &lt;</p>\n</blockquote>\n<p>cd zeppelin-0.11.1-bin-all/bin<br />\nls<br />\n./zeppelin-daemon.sh start<br />\n./zeppelin-daemon.sh stop<br />\n./zeppelin-daemon.sh restart<br />\nrm -rf ~/zeppelin-0.11.1-bin-all/conf</p>\n<blockquote>\n<p>Otros comandos importantes &lt;</p>\n</blockquote>\n<p>pwd (donde estoy ubicado en este momento)<br />\nls (lo que tengo instalado -&gt; azul, rojo -&gt; archivos comprimidos)<br />\nls -al (lista lo q tenemos pero ya con fecha. los permisos tambien estan ahi w de de write, r de read y asi uwu)<br />\ncd (para entrar a la carpeta x &ndash;&gt; cd spark + tab)<br />\ncd .. (regresar)</p>\n<blockquote>\n<p>(Errores de permiso) &lt;</p>\n</blockquote>\n<p>sudo chmod +x /home/nahomi/.sdkman/bin/sdkman-init.sh<br />\nsudo chown nahomi:nahomi //home/nahomi/.sdkman/bin/sdkman-init.sh<br />\nsource /home/nahomi/.sdkman/bin/sdkman-init.sh</p>\n<blockquote>\n<p>(Error por esos archivos con ._) &lt;</p>\n</blockquote>\n<p>find . -name &lsquo;._*&rsquo; -delete</p>\n<p>Repositorio para que se entiendan mejor los comandos<br />\n<a href=\"https://github.com/nahomi2004/PRUEBA-BIMESTRAL/blob/main/TXT/PRACTICA%201603%20ZEPPELIN\">https://github.com/nahomi2004/PRUEBA-BIMESTRAL/blob/main/TXT/PRACTICA%201603%20ZEPPELIN</a></p>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-13T19:11:46-0500",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718323894606_1545299919",
+      "id": "paragraph_1718323894606_1545299919",
+      "dateCreated": "2024-06-13T19:11:34-0500",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:5221"
+    }
+  ],
+  "name": "Nahomi_Cabrera_1306",
+  "id": "2K1KU6DZP",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Nahomi_Cabrera_1306"
+}
