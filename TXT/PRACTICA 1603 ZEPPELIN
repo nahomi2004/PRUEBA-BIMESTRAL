@@ -1,26 +1,41 @@
-%md Instalar curl
-%md sudo snap install curl
+%md 
 
-%md Instalar spark (2 comandos que pueden servir)
-%md curl https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz -o spark.tgz
-%md wget https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
+> Instalar curl <
 
-%md Instalar sdkman
-%md curl -s "https://get.sdkman.io" | bash
+sudo snap install curl
 
-%md Instalar java
-%md sdk list java
-%md sdk install java 11.0.23.fx-zulu
-%md java version --> Comprobar versión
 
-%md Instalar Scala
-%md sdk install scala 2.12.1
+> Instalar spark (2 comandos que pueden servir) <
 
-%md Instalar Zeppelin (2 comandos)
-%md wget https://archive.apache.org/dist/zeppelin/zeppelin-0.11.1/zeppelin-0.11.1-bin-all.tgz
-%md curl https://dlcdn.apache.org/zepellin/zepellin/0.11.1/zepellin-0.11.1-bin-all.tgz
+curl https://dlcdn.apache.org/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz -o spark.tgz
+wget https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
 
-%md Activar, detener y borrar configuraciones
+
+> Instalar sdkman <
+
+curl -s "https://get.sdkman.io" | bash
+
+
+> Instalar java <
+
+sdk list java
+sdk install java 11.0.23.fx-zulu
+java version --> Comprobar versión
+
+
+> Instalar Scala <
+
+sdk install scala 2.12.1
+
+
+> Instalar Zeppelin (2 comandos) <
+
+wget https://archive.apache.org/dist/zeppelin/zeppelin-0.11.1/zeppelin-0.11.1-bin-all.tgz
+curl https://dlcdn.apache.org/zepellin/zepellin/0.11.1/zepellin-0.11.1-bin-all.tgz
+
+
+> Activar, detener y borrar configuraciones <
+
 cd zeppelin-0.11.1-bin-all/bin
 ls
 ./zeppelin-daemon.sh start
@@ -28,18 +43,27 @@ ls
 ./zeppelin-daemon.sh restart
 rm -rf ~/zeppelin-0.11.1-bin-all/conf
 
-%md Otros comandos importantes
-*pwd (donde estoy ubicado en este momento)
-*ls (lo que tengo instalado -> azul, rojo -> archivos comprimidos)
-*ls -al (lista lo q tenemos pero ya con fecha. los permisos tambien estan ahi w de de write, r de read y asi uwu)
-*cd (para entrar a la carpeta x --> cd spark + tab)
-*cd .. (regresar)
 
-(Errores de permiso)
+> Otros comandos importantes <
 
-*sudo chmod +x /home/nahomi/.sdkman/bin/sdkman-init.sh
-*sudo chown nahomi:nahomi //home/nahomi/.sdkman/bin/sdkman-init.sh
-*source /home/nahomi/.sdkman/bin/sdkman-init.sh
+pwd (donde estoy ubicado en este momento)
+ls (lo que tengo instalado -> azul, rojo -> archivos comprimidos)
+ls -al (lista lo q tenemos pero ya con fecha. los permisos tambien estan ahi w de de write, r de read y asi uwu)
+cd (para entrar a la carpeta x --> cd spark + tab)
+cd .. (regresar)
 
-(Error por esos archivos con ._)
+
+> (Errores de permiso) <
+
+sudo chmod +x /home/nahomi/.sdkman/bin/sdkman-init.sh
+sudo chown nahomi:nahomi //home/nahomi/.sdkman/bin/sdkman-init.sh
+source /home/nahomi/.sdkman/bin/sdkman-init.sh
+
+
+> (Error por esos archivos con ._) <
+
 find . -name '._*' -delete
+
+
+Repositorio para que se entiendan mejor los comandos
+https://github.com/nahomi2004/PRUEBA-BIMESTRAL/blob/main/TXT/PRACTICA%201603%20ZEPPELIN
