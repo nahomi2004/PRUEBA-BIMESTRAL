@@ -76,3 +76,19 @@ la salida es texto
 Es bastante similar a una hoja de cálculo, lo diferente es que trabaja con Spark.
 El DataFrame de Spark se puede dividir y ubicarse en miles de computadoras (la razón el tamaño).
 Si se tienen muchos datos, lo mejor es crear el esquema manualmente.
+
+# CODIGO 5 Y SEIS CON ERRORES E INCOMPLETO
+
+val data = spark
+  .read
+  .option("inferSchema", "true")
+  .option("header", "true")
+  .option("delimiter", ";")
+  .csv("file:///C:\/Users\/D E L L\/Desktop\/practica1806-csv1.csv")
+
+import org.apache.spark.sql.types._
+val myDataSquema = StructType(
+    Array(
+        StructField('id', IntegerType, true),
+        StructField
+    ))
