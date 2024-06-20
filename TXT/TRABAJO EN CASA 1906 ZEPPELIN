@@ -1,0 +1,286 @@
+-----------------------
+|    EJEMPLOS JAVA    |
+-----------------------
+
+%java
+import java.text.*;
+import java.util.*;
+import java.util.Date;
+ 
+public class DateExample {
+ 
+   public static void main(String args[]) {
+ 
+     // Obtener la fecha
+     Date now = new Date();
+ 
+     // Obtener los formateadores de fecha de los entornos nacionales
+     // predeterminados, alemán y francés
+     DateFormat theDate = DateFormat.getDateInstance(DateFormat.LONG);
+     DateFormat germanDate = DateFormat.getDateInstance(DateFormat.LONG, Locale.GERMANY);
+     DateFormat frenchDate = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE);
+ 
+     // Formatear e imprimir las fechas
+     System.out.println("Fecha en el entorno nacional predeterminado: " + theDate.format(now));
+     System.out.println("Fecha en el entorno nacional Alemán: " + germanDate.format(now));
+     System.out.println("Fecha en el entorno nacional Francés: " + frenchDate.format(now));  
+   } 
+}
+-----------------------------------------------------------------------------
+|      RESULTADO:                                                           |
+|      Fecha en el entorno nacional predeterminado: June 20, 2024           |
+|      Fecha en el entorno nacional alemán: 20. Juni 2024                   |
+|      Fecha en el entorno nacional francés: 20 juin 2024                   |
+-----------------------------------------------------------------------------
+
+%java
+import java.lang.*;
+import java.text.*;
+import java.util.*;
+ 
+ public class NumberExample {
+ 
+     public static void main(String args[]) throws NumberFormatException {
+ 
+       // El número que debe formatearse
+       double number = 12345.678;
+ 
+       // Obtener formateadores de los entornos nacionales
+       // predeterminado, español y japonés
+       NumberFormat defaultFormat = NumberFormat.getInstance();
+       NumberFormat spanishFormat = NumberFormat.getInstance(new Locale("es", "ES"));
+       NumberFormat japaneseFormat = NumberFormat.getInstance(Locale.JAPAN);
+ 
+       // Imprimir número con los formatos predeterminado, español y japonés
+       // (Nota: NumberFormat no es necesario para el formato predeterminado)
+       System.out.println("El número formateado para el entorno nacional predeterminado; " +
+                          defaultFormat.format(number));
+       System.out.println("El número formateado para el entorno nacional Español; " +
+                          spanishFormat.format(number));
+       System.out.println("El número formateado para el entorno nacional Japonés; " +
+                          japaneseFormat.format(number));
+     }
+ }
+
+--------------------------------------------------------------------------------------
+|      RESULTADO:                                                                    |
+|      El número formateado para el entorno nacional predeterminado; 12,345.678      |
+|      El número formateado para el entorno nacional español; 12.345,678             |
+|      El número formateado para el entorno nacional japonés; 12,345.678             |
+--------------------------------------------------------------------------------------
+
+public class secuencial {
+    
+    static int m; // Columnas de la matriz
+    static int[][] matriz; // Matriz a llenar
+    static int[] contNums; // Contador para cada número
+    static int repNums;
+    static int n; 
+    
+    public static void main(String[] args) {
+        
+        n = 3;
+        m = 4;
+
+        if (m % 2 == 0) {
+            matriz = new int[n][m]; 
+            contNums = new int[n]; 
+            repNums = (n * m) / n; // Número de repeticiones para cada número
+
+            completarMatriz();
+
+            // Imprimir la matriz final
+            System.out.println("\nMatriz final:");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    System.out.print(matriz[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+            // Contar números repetidos
+            for (int i = 1; i <= n; i++) {
+                contar(i);
+            }
+            
+        } else {
+            System.out.println("El número de columnas debe ser par");
+        }
+    }
+
+    public static void completarMatriz() {
+        Random rand = new Random();
+        int filledCount = 0;
+
+        while (filledCount < n * m) {
+            int num = rand.nextInt(n) + 1; // Genera un número aleatorio entre 1 y n
+            if (contNums[num - 1] < repNums) { // Si no se han insertado todas las repeticiones de este número
+                boolean insertar = false;
+                while (!insertar) {
+                    int i = rand.nextInt(n); // genera numeros desde n
+                    int j = rand.nextInt(m); // genera las repeticiones de los numeros
+                    if (matriz[i][j] == 0) {
+                        matriz[i][j] = num;
+                        contNums[num - 1]++;
+                        filledCount++;
+                        System.out.println("Se insertó " + num + " en la posición [" + i + "][" + j + "]");
+                        insertar = true;
+                    }
+                }
+            }
+        }
+    }
+    
+    public static void contar(int numero) {
+        int cont = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matriz[i][j] == numero) {
+                    cont++;
+                }
+            }
+        }
+        System.out.println("Hay " + cont + " números " + numero + " en la matriz.");
+    }
+}
+
+--------------------------------------------------------------------------------------
+|      RESULTADO:                                                                    |
+|      Se insertó 3 en la posición [2][1]                                            |
+|      Se insertó 2 en la posición [1][2]                                            |
+|      Se insertó 3 en la posición [0][3]                                            |
+|      Se insertó 1 en la posición [2][2]                                            |
+|      Se insertó 1 en la posición [2][3]                                            |
+|      Se insertó 3 en la posición [2][0]                                            |
+|      Se insertó 1 en la posición [0][0]                                            |
+|      Se insertó 3 en la posición [1][3]                                            |
+|      Se insertó 1 en la posición [0][1]                                            |
+|      Se insertó 2 en la posición [0][2]                                            |
+|      Se insertó 2 en la posición [1][0]                                            |
+|      Se insertó 2 en la posición [1][1]                                            |
+|                                                                                    |
+|      Matriz final:                                                                 |
+|      1 1 2 3                                                                       |
+|      2 2 2 3                                                                       |
+|      3 3 1 1                                                                       |
+|      Hay 4 números 1 en la matriz.                                                 |
+|      Hay 4 números 2 en la matriz.                                                 |
+|      Hay 4 números 3 en la matriz.                                                 |
+--------------------------------------------------------------------------------------
+
+
+-------------------------
+|    EJEMPLOS PYTHON    |
+-------------------------
+
+%python
+# Listas
+frutas = ["manzana", "plátano", "naranja"]
+print(frutas)
+
+# Acceder a un elemento de la lista
+print(frutas[0])
+
+# Agregar un elemento a la lista
+frutas.append("pera")
+print(frutas)
+
+# Longitud de la lista
+print(len(frutas))
+
+--------------------------------------------------------------------------------------
+|      RESULTADO:                                                                    |
+|      ['manzana', 'plátano', 'naranja']                                             |
+|      manzana                                                                       |
+|      ['manzana', 'plátano', 'naranja', 'pera']                                     |
+|      4                                                                             |
+--------------------------------------------------------------------------------------
+
+
+%python
+numeros = [1, 2, 3, 4, 5]
+
+def suma(a, b):
+    return a + b
+    
+def mul(a, b):
+    return a * b;
+
+def div(a, b):
+    return a / b;
+    
+for i in range(4):
+    print('Suma: ', suma(numeros[i], numeros[i + 1]), 
+          ' - Multiplicacion: ', mul(numeros[i], numeros[i + 1]), 
+          ' - Division: ', div(numeros[i], numeros[i + 1]))
+
+--------------------------------------------------------------------------------------
+|      RESULTADO:                                                                    |
+|      Suma:  3  - Multiplicacion:  2  - Division:  0.5                              |
+|      Suma:  5  - Multiplicacion:  6  - Division:  0.6666666666666666               |
+|      Suma:  7  - Multiplicacion:  12  - Division:  0.75                            |
+|      Suma:  9  - Multiplicacion:  20  - Division:  0.8                             |
+--------------------------------------------------------------------------------------
+
+%python
+import random
+num = random.randint(5, 10) 
+
+print('Saltos de rana')
+print('Hola, soy Zep y voy a saltar', num ,'veces')
+
+print('  @..@')
+print(' (----)')
+print('( \__/ )')
+print(' ^^  ^^')
+
+for i in range(num):
+    print(' /\\  /\\')
+    
+print('  @..@')
+print(' (----)  - llegué <3')
+print('( \__/ )')
+print(' ^^  ^^')
+
+
+--------------------------------------------------------------------------------------
+|      RESULTADO:                                                                    |
+|      Saltos de rana                                                                |
+|      Hola, soy Zep y voy a saltar 7 veces                                          |
+|        @..@                                                                        |
+|       (----)                                                                       |
+|      ( \__/ )                                                                      |
+|       ^^  ^^                                                                       |
+|       /\  /\                                                                       |
+|       /\  /\                                                                       |
+|       /\  /\                                                                       |
+|       /\  /\                                                                       |
+|       /\  /\                                                                       |
+|       /\  /\                                                                       |
+|       /\  /\                                                                       |
+|        @..@                                                                        |
+|       (----)  - llegué <3                                                          |
+|      ( \__/ )                                                                      |
+|       ^^  ^^                                                                       |
+--------------------------------------------------------------------------------------
+
+
+%python
+import random
+num = random.randint(0, 10)
+num2 = random.randint(0, 10)
+
+try:
+    resultado = num / num2
+    print(num, ' / ', num2, ' = ', resultado)
+except ZeroDivisionError:
+    print(num, ' / ', num2, ' = Pipipi')
+    print("Error: división por cero")
+
+--------------------------------------------------------------------------------------
+|      RESULTADO:                                                                    |
+|      1  /  0  = Pipipi)                                                            |
+|      Error: división por cero                                                      |
+|                                                                                    |
+|      1  /  7  =  0.14285714285714285                                               |
+--------------------------------------------------------------------------------------
