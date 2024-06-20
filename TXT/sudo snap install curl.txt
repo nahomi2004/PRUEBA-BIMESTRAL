@@ -34,3 +34,9 @@ wget https://archive.apache.org/dist/zeppelin/zeppelin-0.11.1/zeppelin-0.11.1-bi
 cd spark + tab
 cd spark-3.2.1-bin-hadoop3.2/
 pwd
+
+para poder ver ra ruta de python ejecutar en zeppelin-0.11.1-bin-all/bin
+which python3
+y debe salirte algo como: 
+/home/gitpod/.pyenv/shims/python3
+y eso lo pones en la ruta del zeppelin
