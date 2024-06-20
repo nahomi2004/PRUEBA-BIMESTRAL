@@ -1,0 +1,346 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%java\nimport java.text.*;\nimport java.util.*;\nimport java.util.Date;\n \npublic class DateExample {\n \n   public static void main(String args[]) {\n \n     // Obtener la fecha\n     Date now = new Date();\n \n     // Obtener los formateadores de fecha de los entornos nacionales\n     // predeterminados, alemán y francés\n     DateFormat theDate = DateFormat.getDateInstance(DateFormat.LONG);\n     DateFormat germanDate = DateFormat.getDateInstance(DateFormat.LONG, Locale.GERMANY);\n     DateFormat frenchDate = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE);\n \n     // Formatear e imprimir las fechas\n     System.out.println(\"Fecha en el entorno nacional predeterminado: \" + theDate.format(now));\n     System.out.println(\"Fecha en el entorno nacional Alemán: \" + germanDate.format(now));\n     System.out.println(\"Fecha en el entorno nacional Francés: \" + frenchDate.format(now));  \n   } \n}",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T01:45:09+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/java",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "java",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Fecha en el entorno nacional predeterminado: June 20, 2024\nFecha en el entorno nacional alemán: 20. Juni 2024\nFecha en el entorno nacional francés: 20 juin 2024\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718847790922_1890615191",
+      "id": "paragraph_1718847790922_1890615191",
+      "dateCreated": "2024-06-20T01:43:10+0000",
+      "dateStarted": "2024-06-20T01:44:43+0000",
+      "dateFinished": "2024-06-20T01:44:46+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8806"
+    },
+    {
+      "text": "%java\nimport java.lang.*;\nimport java.text.*;\nimport java.util.*;\n \n public class NumberExample {\n \n     public static void main(String args[]) throws NumberFormatException {\n \n       // El número que debe formatearse\n       double number = 12345.678;\n \n       // Obtener formateadores de los entornos nacionales\n       // predeterminado, español y japonés\n       NumberFormat defaultFormat = NumberFormat.getInstance();\n       NumberFormat spanishFormat = NumberFormat.getInstance(new Locale(\"es\", \"ES\"));\n       NumberFormat japaneseFormat = NumberFormat.getInstance(Locale.JAPAN);\n \n       // Imprimir número con los formatos predeterminado, español y japonés\n       // (Nota: NumberFormat no es necesario para el formato predeterminado)\n       System.out.println(\"El número formateado para el entorno nacional predeterminado; \" +\n                          defaultFormat.format(number));\n       System.out.println(\"El número formateado para el entorno nacional Español; \" +\n                          spanishFormat.format(number));\n       System.out.println(\"El número formateado para el entorno nacional Japonés; \" +\n                          japaneseFormat.format(number));\n     }\n }",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T01:46:21+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/java",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "java",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "El número formateado para el entorno nacional predeterminado; 12,345.678\nEl número formateado para el entorno nacional español; 12.345,678\nEl número formateado para el entorno nacional japonés; 12,345.678\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718847883440_525631065",
+      "id": "paragraph_1718847883440_525631065",
+      "dateCreated": "2024-06-20T01:44:43+0000",
+      "dateStarted": "2024-06-20T01:46:02+0000",
+      "dateFinished": "2024-06-20T01:46:02+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8807"
+    },
+    {
+      "text": "%java\nimport java.util.Random;\n\npublic class secuencial {\n    \n    static int m; // Columnas de la matriz\n    static int[][] matriz; // Matriz a llenar\n    static int[] contNums; // Contador para cada número\n    static int repNums;\n    static int n; \n    \n    public static void main(String[] args) {\n        \n        n = 3;\n        m = 4;\n\n        if (m % 2 == 0) {\n            matriz = new int[n][m]; \n            contNums = new int[n]; \n            repNums = (n * m) / n; // Número de repeticiones para cada número\n\n            completarMatriz();\n\n            // Imprimir la matriz final\n            System.out.println(\"\\nMatriz final:\");\n            for (int i = 0; i < n; i++) {\n                for (int j = 0; j < m; j++) {\n                    System.out.print(matriz[i][j] + \" \");\n                }\n                System.out.println();\n            }\n\n            // Contar números repetidos\n            for (int i = 1; i <= n; i++) {\n                contar(i);\n            }\n            \n        } else {\n            System.out.println(\"El número de columnas debe ser par\");\n        }\n    }\n\n    public static void completarMatriz() {\n        Random rand = new Random();\n        int filledCount = 0;\n\n        while (filledCount < n * m) {\n            int num = rand.nextInt(n) + 1; // Genera un número aleatorio entre 1 y n\n            if (contNums[num - 1] < repNums) { // Si no se han insertado todas las repeticiones de este número\n                boolean insertar = false;\n                while (!insertar) {\n                    int i = rand.nextInt(n); // genera numeros desde n\n                    int j = rand.nextInt(m); // genera las repeticiones de los numeros\n                    if (matriz[i][j] == 0) {\n                        matriz[i][j] = num;\n                        contNums[num - 1]++;\n                        filledCount++;\n                        System.out.println(\"Se insertó \" + num + \" en la posición [\" + i + \"][\" + j + \"]\");\n                        insertar = true;\n                    }\n                }\n            }\n        }\n    }\n    \n    public static void contar(int numero) {\n        int cont = 0;\n        for (int i = 0; i < n; i++) {\n            for (int j = 0; j < m; j++) {\n                if (matriz[i][j] == numero) {\n                    cont++;\n                }\n            }\n        }\n        System.out.println(\"Hay \" + cont + \" números \" + numero + \" en la matriz.\");\n    }\n}",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T02:13:35+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/java",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "java",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Se insertó 3 en la posición [2][1]\nSe insertó 2 en la posición [1][2]\nSe insertó 3 en la posición [0][3]\nSe insertó 1 en la posición [2][2]\nSe insertó 1 en la posición [2][3]\nSe insertó 3 en la posición [2][0]\nSe insertó 1 en la posición [0][0]\nSe insertó 3 en la posición [1][3]\nSe insertó 1 en la posición [0][1]\nSe insertó 2 en la posición [0][2]\nSe insertó 2 en la posición [1][0]\nSe insertó 2 en la posición [1][1]\n\nMatriz final:\n1 1 2 3 \n2 2 2 3 \n3 3 1 1 \nHay 4 números 1 en la matriz.\nHay 4 números 2 en la matriz.\nHay 4 números 3 en la matriz.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718847962622_1704994230",
+      "id": "paragraph_1718847962622_1704994230",
+      "dateCreated": "2024-06-20T01:46:02+0000",
+      "dateStarted": "2024-06-20T02:13:35+0000",
+      "dateFinished": "2024-06-20T02:13:35+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8808"
+    },
+    {
+      "text": "%python\n# Listas\nfrutas = [\"manzana\", \"plátano\", \"naranja\"]\nprint(frutas)\n\n# Acceder a un elemento de la lista\nprint(frutas[0])\n\n# Agregar un elemento a la lista\nfrutas.append(\"pera\")\nprint(frutas)\n\n# Longitud de la lista\nprint(len(frutas))\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T03:10:54+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "['manzana', 'plátano', 'naranja']\nmanzana\n['manzana', 'plátano', 'naranja', 'pera']\n4\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718848008437_572633813",
+      "id": "paragraph_1718848008437_572633813",
+      "dateCreated": "2024-06-20T01:46:48+0000",
+      "dateStarted": "2024-06-20T03:10:54+0000",
+      "dateFinished": "2024-06-20T03:10:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8809"
+    },
+    {
+      "text": "%python\nnumeros = [1, 2, 3, 4, 5]\n\ndef suma(a, b):\n    return a + b\n    \ndef mul(a, b):\n    return a * b;\n\ndef div(a, b):\n    return a / b;\n    \nfor i in range(4):\n    print('Suma: ', suma(numeros[i], numeros[i + 1]), \n          ' - Multiplicacion: ', mul(numeros[i], numeros[i + 1]), \n          ' - Division: ', div(numeros[i], numeros[i + 1]))\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T02:40:47+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718849946618_666062964",
+      "id": "paragraph_1718849946618_666062964",
+      "dateCreated": "2024-06-20T02:19:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8810",
+      "dateFinished": "2024-06-20T02:40:47+0000",
+      "dateStarted": "2024-06-20T02:40:47+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Suma:  3  - Multiplicacion:  2  - Division:  0.5\nSuma:  5  - Multiplicacion:  6  - Division:  0.6666666666666666\nSuma:  7  - Multiplicacion:  12  - Division:  0.75\nSuma:  9  - Multiplicacion:  20  - Division:  0.8\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nimport random\nnum = random.randint(5, 10) \n\nprint('Saltos de rana')\nprint('Hola, soy Zep y voy a saltar', num ,'veces')\n\nprint('  @..@')\nprint(' (----)')\nprint('( \\__/ )')\nprint(' ^^  ^^')\n\nfor i in range(num):\n    print(' /\\\\  /\\\\')\n    \nprint('  @..@')\nprint(' (----)  - llegué <3')\nprint('( \\__/ )')\nprint(' ^^  ^^')",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T02:54:06+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718850997895_2026184206",
+      "id": "paragraph_1718850997895_2026184206",
+      "dateCreated": "2024-06-20T02:36:37+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:9435",
+      "dateFinished": "2024-06-20T02:54:06+0000",
+      "dateStarted": "2024-06-20T02:54:06+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<stdin>:10: SyntaxWarning: invalid escape sequence '\\_'\n<stdin>:18: SyntaxWarning: invalid escape sequence '\\_'\nSaltos de rana\nHola, soy Zep y voy a saltar 7 veces\n  @..@\n (----)\n( \\__/ )\n ^^  ^^\n /\\  /\\\n /\\  /\\\n /\\  /\\\n /\\  /\\\n /\\  /\\\n /\\  /\\\n /\\  /\\\n  @..@\n (----)  - llegué <3\n( \\__/ )\n ^^  ^^\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nimport random\nnum = random.randint(0, 10)\nnum2 = random.randint(0, 10)\n\ntry:\n    resultado = num / num2\n    print(num, ' / ', num2, ' = ', resultado)\nexcept ZeroDivisionError:\n    print(num, ' / ', num2, ' = Pipipi')\n    print(\"Error: división por cero\")",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T03:18:31+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718851802120_1097074569",
+      "id": "paragraph_1718851802120_1097074569",
+      "dateCreated": "2024-06-20T02:50:02+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:9614",
+      "dateFinished": "2024-06-20T03:18:31+0000",
+      "dateStarted": "2024-06-20T03:18:31+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "1  /  7  =  0.14285714285714285\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-06-20T02:56:41+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1718852201396_1105825415",
+      "id": "paragraph_1718852201396_1105825415",
+      "dateCreated": "2024-06-20T02:56:41+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:9796"
+    }
+  ],
+  "name": "TRABAJO CASA 1906",
+  "id": "2JZDZKKAX",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.11.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/TRABAJO CASA 1906"
+}
